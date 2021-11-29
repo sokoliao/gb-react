@@ -1,24 +1,15 @@
 import { Message } from "../../model/message";
 import "./message.css";
 import moment from "moment";
-import { useEffect, useRef } from "react";
 
 interface MessageProps {
   message: Message;
   isCurrentUserAuthor: boolean;
-  shouldScrollIntoView: boolean;
 }
 
 export const MessageComponent: React.FC<MessageProps> = (props) => {
-  const ref = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    if (ref && props.shouldScrollIntoView) {
-      ref.current?.scrollIntoView();
-    }
-  }, [ref, props.shouldScrollIntoView]);
   return (
     <div
-      ref={ref}
       className={
         props.isCurrentUserAuthor
           ? "message-wrapper-reverse"
