@@ -3,7 +3,6 @@ import "./App.css";
 import { Message } from "./model/message";
 import { currentUser, bot } from "./model/user";
 import { NewMessageComponent } from "./components/new-message/new-message.component";
-import _ from "lodash";
 import { useChatbot } from "./hooks/use-chatbot.hook";
 import { MessageListComponent } from "./components/message-list/message-list.component";
 
