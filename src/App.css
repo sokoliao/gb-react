@@ -12,7 +12,3 @@
   max-width: 80vw;
   min-width: 512px;
 }
-
-.message-list {
-  overflow-y: scroll;
-}

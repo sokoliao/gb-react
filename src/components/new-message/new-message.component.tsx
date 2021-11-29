@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Message, createMessage } from "./model/message";
-import { User } from "./model/user";
+import { Message, createMessage } from "../../model/message";
+import { User } from "../../model/user";
 import sendIcon from "./paper-plane-solid.svg";
 import "./new-message.css";
 

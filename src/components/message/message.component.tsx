@@ -1,4 +1,4 @@
-import { Message } from "./model/message";
+import { Message } from "../../model/message";
 import "./message.css";
 import moment from "moment";
 
