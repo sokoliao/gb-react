@@ -1,0 +1,31 @@
+.new-message-wrapper {
+  display: flex;
+  align-items: flex-end;
+  padding: 8px;
+}
+
+.new-message-edit {
+  border: solid lightgray 1px;
+  border-radius: 8px;
+  padding: 8px;
+  margin-right: 8px;
+  flex-grow: 1;
+}
+
+.new-message-submit {
+  width: 32px;
+  height: 32px;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  border-color: white;
+  color: white;
+  background-color: white;
+  border-width: 0px;
+}
+
+.new-message-submit:active {
+  background-color: lightgray;
+}

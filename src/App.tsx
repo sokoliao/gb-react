@@ -1,20 +1,27 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
-import { MessageComponent } from "./message.component";
-import Message from "./model/message";
-
-const messages: Message[] = [
-  { text: "Hello World!" },
-  { text: "First message" },
-  { text: "Third message" },
-];
+import { Message } from "./model/message";
+import { currentUser, bot } from "./model/user";
+import { NewMessageComponent } from "./components/new-message/new-message.component";
+import { useChatbot } from "./hooks/use-chatbot.hook";
+import { MessageListComponent } from "./components/message-list/message-list.component";
 
 const App: React.FC<{}> = () => {
+  const [messages, setMessages] = useState<Message[]>([]);
+  const addMessage = (newMessage: Message) => {
+    setMessages((currentMessages) => [...currentMessages, newMessage]);
+  };
+  useChatbot(bot, messages, addMessage);
   return (
-    <div className="App">
-      {messages.map((message) => (
-        <MessageComponent message={message}></MessageComponent>
-      ))}
+    <div className="app-wrapper">
+      <MessageListComponent
+        messages={messages}
+        currentUser={currentUser}
+      ></MessageListComponent>
+      <NewMessageComponent
+        user={currentUser}
+        onSubmitNewMessage={addMessage}
+      ></NewMessageComponent>
     </div>
   );
 };
