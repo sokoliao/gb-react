@@ -9,6 +9,6 @@ export const useChatbot = (botUser: User, messages: Message[], addMessage: (newM
         return;
       }
       addMessage(createMessage(botUser, "WE ARE BORG"));
-    }, 1000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, [botUser, addMessage, messages]);
