@@ -1,17 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import { Message } from "./model/message";
-import { currentUser, bot } from "./model/user";
+import { currentUser } from "./model/user";
 import { NewMessageComponent } from "./components/new-message/new-message.component";
 import { useChatbot } from "./hooks/use-chatbot.hook";
 import { MessageListComponent } from "./components/message-list/message-list.component";
+import { useFocusNewMessage } from "./hooks/use-focus-new-message.hook";
+import { useMessages } from "./hooks/use-messages.hook";
 
 const App: React.FC<{}> = () => {
-  const [messages, setMessages] = useState<Message[]>([]);
-  const addMessage = (newMessage: Message) => {
-    setMessages((currentMessages) => [...currentMessages, newMessage]);
-  };
-  useChatbot(bot, messages, addMessage);
+  const [messages, addMessage] = useMessages();
+  const [newMessageEditRef] = useFocusNewMessage(messages);
+  useChatbot(messages, addMessage);
   return (
     <div className="app-wrapper">
       <MessageListComponent
@@ -19,6 +18,7 @@ const App: React.FC<{}> = () => {
         currentUser={currentUser}
       ></MessageListComponent>
       <NewMessageComponent
+        ref={newMessageEditRef}
         user={currentUser}
         onSubmitNewMessage={addMessage}
       ></NewMessageComponent>

@@ -11,7 +11,10 @@ interface NewMessageProps {
 
 const DEFAULT_VALUE = "";
 
-export const NewMessageComponent: React.FC<NewMessageProps> = (props) => {
+export const NewMessageComponent = React.forwardRef<
+  HTMLInputElement,
+  NewMessageProps
+>((props, ref) => {
   const [text, setText] = useState<string>(DEFAULT_VALUE);
   const setMessageText = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
@@ -26,6 +29,7 @@ export const NewMessageComponent: React.FC<NewMessageProps> = (props) => {
   return (
     <form onSubmit={resetAndSubmit} className="new-message-wrapper">
       <input
+        ref={ref}
         className="new-message-edit"
         type="text"
         placeholder="Message"
@@ -37,4 +41,4 @@ export const NewMessageComponent: React.FC<NewMessageProps> = (props) => {
       </button>
     </form>
   );
-};
+});
