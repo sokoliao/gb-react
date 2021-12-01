@@ -3,12 +3,24 @@
   width: 100vw;
   background-image: linear-gradient(rgb(0, 158, 221), lightskyblue);
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
+  align-items: stretch;
+  justify-content: flex-start;
 }
 
-.app-wrapper > * {
-  max-width: 80vw;
-  min-width: 512px;
+.chat-list-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: stretch;
+  width: 200px;
+}
+
+.chat-wrapper {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  padding-left: 24px;
+  padding-right: 64px;
 }
