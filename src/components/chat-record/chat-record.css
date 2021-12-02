@@ -1,18 +1,16 @@
-.chat-record-wrapper {
-  display: flex;
-  align-items: stretch;
-  margin: 8px;
-}
-
 .chat-record-logo {
   width: 32px;
   height: 32px;
-  margin-right: 8px;
+  margin-right: 1rem;
+}
+
+.chat-record-wrapper {
+  width: 100%;
 }
 
 .chat-record-text {
+  color: black;
   text-overflow: ellipsis;
-  display: flex;
-  align-items: center;
+  overflow: hidden;
   flex-shrink: 1;
 }

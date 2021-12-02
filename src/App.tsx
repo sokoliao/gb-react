@@ -3,16 +3,19 @@ import "./App.css";
 import { ChatListComponent } from "./components/chat-list/chat-list.component";
 import { chats } from "./model/chat";
 import { ChatComponent } from "./components/chat/chat.component";
+import { Col, Container, Nav, Navbar, Row } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const App: React.FC<{}> = () => {
   return (
-    <div className="app-wrapper">
-      <ChatListComponent
-        className="chat-list-wrapper-outer"
-        chats={chats}
-      ></ChatListComponent>
-      <ChatComponent className="chat-wrapper-outer"></ChatComponent>
-    </div>
+    <Container fluid className="app-wrapper">
+      <Row style={{ height: "100%" }}>
+        <Col xs="3">
+          <ChatListComponent chats={chats}></ChatListComponent>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
   );
 };
 

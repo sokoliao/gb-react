@@ -13,7 +13,7 @@ export const chats: Chat[] = [
   },
   {
     id: uuidv4(),
-    name: "freeCodeCamp",
+    name: "freeCodeCamp222222222222222",
     logoUrl: "/gb-react/comments-solid.svg",
   },
   {
