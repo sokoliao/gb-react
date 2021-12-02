@@ -1,8 +1,6 @@
 .chat-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  justify-content: flex-end;
-  padding-left: 24px;
-  padding-right: 64px;
+  padding-left: 1rem;
+  padding-right: 3rem;
+  overflow-y: hidden;
+  height: 100%;
 }

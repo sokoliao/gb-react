@@ -1,3 +1,4 @@
 .message-list {
   overflow-y: scroll;
+  height: 100%;
 }

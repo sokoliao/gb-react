@@ -13,7 +13,7 @@ const App: React.FC<{}> = () => {
         <Col xs="3">
           <ChatListComponent chats={chats}></ChatListComponent>
         </Col>
-        <Col></Col>
+        <ChatComponent></ChatComponent>
       </Row>
     </Container>
   );
