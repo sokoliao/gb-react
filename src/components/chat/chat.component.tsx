@@ -14,7 +14,7 @@ export const ChatComponent: React.FC<ChatProps> = (props) => {
   const [newMessageEditRef] = useFocusNewMessage(messages);
   useChatbot(messages, addMessage);
   return (
-    <Col className="align-items-stretch justify-content-end chat-wrapper">
+    <Col className="d-flex flex-column align-items-stretch justify-content-end chat-wrapper">
       <MessageListComponent
         messages={messages}
         currentUser={currentUser}
