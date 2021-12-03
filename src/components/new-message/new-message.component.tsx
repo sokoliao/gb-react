@@ -3,6 +3,9 @@ import { Message, createMessage } from "../../model/message";
 import { User } from "../../model/user";
 import sendIcon from "./paper-plane-solid.svg";
 import "./new-message.css";
+import { Button, Form, Image } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 
 interface NewMessageProps {
   user: User;
@@ -27,18 +30,22 @@ export const NewMessageComponent = React.forwardRef<
     props.onSubmitNewMessage(createMessage(props.user, text));
   };
   return (
-    <form onSubmit={resetAndSubmit} className="new-message-wrapper">
-      <input
-        ref={ref}
-        className="new-message-edit"
-        type="text"
-        placeholder="Message"
-        onChange={setMessageText}
-        value={text}
-      />
-      <button type="submit" className="new-message-submit">
-        <img src={sendIcon} alt="Send" />
-      </button>
-    </form>
+    <Form onSubmit={resetAndSubmit} className="d-flex">
+      <Form.Group className="m-3 flex-grow-1">
+        <Form.Control
+          ref={ref}
+          type="text"
+          placeholder="Message"
+          onChange={setMessageText}
+          value={text}
+        ></Form.Control>
+      </Form.Group>
+      <Button type="submit" className="m-3">
+        <FontAwesomeIcon
+          className="new-message-submit-image"
+          icon={faPaperPlane}
+        />
+      </Button>
+    </Form>
   );
 });

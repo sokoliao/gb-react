@@ -1,8 +1,6 @@
 .app-wrapper {
   height: 100vh;
   background-image: linear-gradient(rgb(0, 158, 221), lightskyblue);
-  padding-right: 0 !important;
-  padding-left: 0 !important;
 }
 
 .chat-list-wrapper-outer {

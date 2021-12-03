@@ -1,4 +1,4 @@
-import { Nav } from "react-bootstrap";
+import { Nav, Row } from "react-bootstrap";
 import { Chat } from "../../model/chat";
 import { ChatRecordComponent } from "../chat-record/chat-record.component";
 import "./chat-list.css";
@@ -9,10 +9,15 @@ interface ChatListProps {
 
 export const ChatListComponent: React.FC<ChatListProps> = (props) => {
   return (
-    <Nav className="flex-column chat-list-content">
-      {props.chats.map((chat) => (
-        <ChatRecordComponent key={chat.id} record={chat}></ChatRecordComponent>
-      ))}
-    </Nav>
+    <Row className="chat-list-content">
+      <Nav className="flex-column">
+        {props.chats.map((chat) => (
+          <ChatRecordComponent
+            key={chat.id}
+            record={chat}
+          ></ChatRecordComponent>
+        ))}
+      </Nav>
+    </Row>
   );
 };
