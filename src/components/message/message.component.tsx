@@ -1,7 +1,7 @@
 import { Message } from "../../model/message";
 import "./message.css";
 import moment from "moment";
-import { Nav, Image, Col } from "react-bootstrap";
+import { Nav, Image, Col, Row } from "react-bootstrap";
 
 interface MessageProps {
   message: Message;
