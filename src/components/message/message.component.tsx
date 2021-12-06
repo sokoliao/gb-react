@@ -2,6 +2,8 @@ import { Message } from "../../model/message";
 import "./message.css";
 import moment from "moment";
 import { Nav, Image, Col, Row } from "react-bootstrap";
+import { useContext } from "react";
+import { ColorThemeContext } from "../../App";
 
 interface MessageProps {
   message: Message;
@@ -9,6 +11,7 @@ interface MessageProps {
 }
 
 export const MessageComponent: React.FC<MessageProps> = (props) => {
+  const theme = useContext(ColorThemeContext);
   return (
     <div
       className={`d-flex align-items-end ${
@@ -21,32 +24,16 @@ export const MessageComponent: React.FC<MessageProps> = (props) => {
         alt="logo"
       ></Image>
       <div key={props.message.id} className="message-text">
-        <div className="message-user-name">{props.message.user.name}</div>
+        <div className={`text-small ${theme.textSecondary}`}>
+          {props.message.user.name}
+        </div>
         <div>{props.message.text}</div>
-        <div className="message-timestamp">
+        <div
+          className={`text-small d-flex justify-content-end ${theme.textSecondary}`}
+        >
           {moment(props.message.timestamp).format("h:mm")}
         </div>
       </div>
     </div>
   );
-  // return (
-  //   <div
-  //     className={
-  //       props.isCurrentUserAuthor
-  //         ? "message-wrapper-reverse"
-  //         : "message-wrapper"
-  //     }
-  //   >
-  //     <div className="message-logo">
-  //       <img src={props.message.user.logoUrl} alt="logo" />
-  //     </div>
-  //     <div key={props.message.id} className="message-text">
-  //       <div className="message-user-name">{props.message.user.name}</div>
-  //       <div>{props.message.text}</div>
-  //       <div className="message-timestamp">
-  //         {moment(props.message.timestamp).format("h:mm")}
-  //       </div>
-  //     </div>
-  //   </div>
-  // );
 };

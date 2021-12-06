@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Message, createMessage } from "../../model/message";
 import { User } from "../../model/user";
 import sendIcon from "./paper-plane-solid.svg";
@@ -6,6 +6,7 @@ import "./new-message.css";
 import { Button, Form, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
+import { ColorThemeContext } from "../../App";
 
 interface NewMessageProps {
   user: User;
@@ -29,18 +30,20 @@ export const NewMessageComponent = React.forwardRef<
     setText((_) => DEFAULT_VALUE);
     props.onSubmitNewMessage(createMessage(props.user, text));
   };
+  const theme = useContext(ColorThemeContext);
   return (
     <Form onSubmit={resetAndSubmit} className="d-flex">
       <Form.Group className="m-3 flex-grow-1">
         <Form.Control
           ref={ref}
           type="text"
+          className={`${theme.background} ${theme.text}`}
           placeholder="Message"
           onChange={setMessageText}
           value={text}
         ></Form.Control>
       </Form.Group>
-      <Button type="submit" className="m-3">
+      <Button type="submit" className="m-3" variant={theme.button}>
         <FontAwesomeIcon
           className="new-message-submit-image"
           icon={faPaperPlane}

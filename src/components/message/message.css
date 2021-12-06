@@ -15,7 +15,6 @@
 }
 
 .message-text {
-  background-color: white;
   border-radius: 8px;
   padding: 8px;
   margin: 8px;
@@ -23,14 +22,6 @@
   word-break: break-all;
 }
 
-.message-user-name {
-  color: gray;
-  font-size: 12px;
-}
-
-.message-timestamp {
-  color: gray;
-  display: flex;
-  justify-content: flex-end;
-  font-size: 8px;
+.text-small {
+  font-size: 0.75rem;
 }

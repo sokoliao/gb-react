@@ -8,9 +8,6 @@
   width: 100%;
 }
 
-.chat-record-text {
-  color: black;
+.text-overflow-ellipsis {
   text-overflow: ellipsis;
-  overflow: hidden;
-  flex-shrink: 1;
 }
