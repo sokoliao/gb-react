@@ -1,9 +1,8 @@
 import React, { useContext, useState } from "react";
 import { Message, createMessage } from "../../model/message";
 import { User } from "../../model/user";
-import sendIcon from "./paper-plane-solid.svg";
 import "./new-message.css";
-import { Button, Form, Image } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { ColorThemeContext } from "../../App";

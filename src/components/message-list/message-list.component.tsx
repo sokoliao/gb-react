@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import { Row, Stack } from "react-bootstrap";
+import { Stack } from "react-bootstrap";
 import { Message } from "../../model/message";
 import { User } from "../../model/user";
 import { MessageComponent } from "../message/message.component";

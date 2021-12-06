@@ -1,7 +1,7 @@
 import { Message } from "../../model/message";
 import "./message.css";
 import moment from "moment";
-import { Nav, Image, Col, Row } from "react-bootstrap";
+import { Image } from "react-bootstrap";
 import { useContext } from "react";
 import { ColorThemeContext } from "../../App";
 
@@ -23,7 +23,7 @@ export const MessageComponent: React.FC<MessageProps> = (props) => {
         src={props.message.user.logoUrl}
         alt="logo"
       ></Image>
-      <div key={props.message.id} className="message-text">
+      <div key={props.message.id} className="message-text border">
         <div className={`text-small ${theme.textSecondary}`}>
           {props.message.user.name}
         </div>
