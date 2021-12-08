@@ -1,4 +1,4 @@
-import { Col } from "react-bootstrap";
+import { Col, Nav } from "react-bootstrap";
 import { useChatbot } from "../../hooks/use-chatbot.hook";
 import { useFocusNewMessage } from "../../hooks/use-focus-new-message.hook";
 import { useMessages } from "../../hooks/use-messages.hook";
@@ -14,7 +14,12 @@ export const ChatComponent: React.FC<ChatProps> = (props) => {
   const [newMessageEditRef] = useFocusNewMessage(messages);
   useChatbot(messages, addMessage);
   return (
-    <Col className="d-flex flex-column align-items-stretch justify-content-end chat-wrapper">
+    <Col className="d-flex flex-column align-items-stretch justify-content-end chat-wrapper p-0">
+      <Nav className="border-bottom">
+        <Nav.Item className="d-flex align-items-center">
+          <h2 className="my-2 mx-3">Current Chat</h2>
+        </Nav.Item>
+      </Nav>
       <MessageListComponent
         messages={messages}
         currentUser={currentUser}

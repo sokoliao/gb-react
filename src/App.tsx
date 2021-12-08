@@ -18,10 +18,10 @@ const App: React.FC<{}> = () => {
     <ColorThemeContext.Provider value={colorTheme}>
       <Container
         fluid
-        className={`app-wrapper d-flex flex-column ${colorTheme.background} ${colorTheme.text}`}
+        className={`app-wrapper d-flex flex-column p-0 ${colorTheme.background} ${colorTheme.text}`}
       >
         <HeaderComponent switchColorTheme={switchColorTheme}></HeaderComponent>
-        <Row className="overflow-hidden flex-grow-1">
+        <Row className="overflow-hidden flex-grow-1 m-0">
           <Col xs="3" className="border-end">
             <ChatListComponent chats={chats}></ChatListComponent>
           </Col>

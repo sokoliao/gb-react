@@ -18,7 +18,7 @@ export const MessageListComponent: React.FC<MessageListProps> = (props) => {
     }
   }, [props.messages]);
   return (
-    <Stack className="flex-grow-0 overflow-scroll" ref={ref}>
+    <Stack className="justify-content-end overflow-scroll m-2" ref={ref}>
       {props.messages.map((message) => (
         <MessageComponent
           key={message.id}

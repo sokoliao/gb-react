@@ -31,7 +31,7 @@ export const NewMessageComponent = React.forwardRef<
   };
   const theme = useContext(ColorThemeContext);
   return (
-    <Form onSubmit={resetAndSubmit} className="d-flex">
+    <Form onSubmit={resetAndSubmit} className="d-flex m-2">
       <Form.Group className="m-3 flex-grow-1">
         <Form.Control
           ref={ref}

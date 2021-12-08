@@ -13,7 +13,7 @@ export const HeaderComponent: React.FC<HeaderProps> = (props) => {
     <Nav className="justify-content-end border-bottom">
       <Nav.Item className="d-flex align-items-center">
         <Button
-          className="m-2"
+          className="my-2 mx-4"
           onClick={props.switchColorTheme}
           variant={theme.button}
         >
