@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Nav, Image, Col } from "react-bootstrap";
+import { Image, Col } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { ColorThemeContext } from "../../App";
 import { Chat } from "../../model/chat";
