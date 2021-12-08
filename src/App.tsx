@@ -1,6 +1,9 @@
 import React from "react";
 import "./App.css";
-import { ChatComponent } from "./components/chat/chat.component";
+import {
+  ChatComponent,
+  ChatGuardComponent,
+} from "./components/chat/chat.component";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ColorTheme, defaultColorTheme } from "./hooks/color-theme/color-theme";
 import { useColorTheme } from "./hooks/color-theme/use-color-theme.hook";
@@ -34,9 +37,14 @@ const App: React.FC<{}> = () => {
               element={<Layout switchColorTheme={switchColorTheme}></Layout>}
             >
               <Route path="chats" element={<ChatsLayoutComponent />}>
+                <Route index element={<h1>Start talking</h1>}></Route>
                 <Route
                   path=":chatId"
-                  element={<ChatComponent></ChatComponent>}
+                  element={
+                    <ChatGuardComponent>
+                      <ChatComponent></ChatComponent>
+                    </ChatGuardComponent>
+                  }
                 ></Route>
               </Route>
               <Route path="profile" element={<h1>profile</h1>}></Route>

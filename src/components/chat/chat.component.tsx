@@ -1,4 +1,8 @@
+import _ from "lodash";
+import { useContext } from "react";
 import { Col, Nav } from "react-bootstrap";
+import { useParams } from "react-router";
+import { AppStateContext } from "../../App";
 import { useChatbot } from "../../hooks/use-chatbot.hook";
 import { useFocusNewMessage } from "../../hooks/use-focus-new-message.hook";
 import { useMessages } from "../../hooks/use-messages.hook";
@@ -28,5 +32,17 @@ export const ChatComponent: React.FC<{}> = () => {
         onSubmitNewMessage={addMessage}
       ></NewMessageComponent>
     </Col>
+  );
+};
+
+export const ChatGuardComponent: React.FC<{}> = () => {
+  const { chats } = useContext(AppStateContext);
+  const chatId = useParams()["chatId"];
+  const chat = _.find(chats, (c) => c.id === chatId);
+  return (
+    <>
+      {chat && <ChatComponent />}
+      {!chat && <h1>404 - chat not found</h1>}
+    </>
   );
 };

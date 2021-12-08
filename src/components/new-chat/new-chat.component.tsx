@@ -36,7 +36,11 @@ export const NewChatComponent: React.FC<NewChatProps> = (props) => {
           value={text}
         ></Form.Control>
       </Form.Group>
-      <Button className="m-2 height-2dot5rem" variant={theme.button}>
+      <Button
+        type="submit"
+        className="m-2 height-2dot5rem"
+        variant={theme.button}
+      >
         <FontAwesomeIcon icon={faPlusCircle} />
       </Button>
     </Form>

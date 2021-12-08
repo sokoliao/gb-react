@@ -2,7 +2,7 @@ import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useContext } from "react";
 import { Image, Col, Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AppStateContext, ColorThemeContext } from "../../App";
 import { Chat } from "../../model/chat";
 import "./chat-record.css";
@@ -13,10 +13,12 @@ interface ChatRecordProps {
 
 export const ChatRecordComponent: React.FC<ChatRecordProps> = (props) => {
   const theme = useContext(ColorThemeContext);
+  const navigate = useNavigate();
   const { deleteChat } = useContext(AppStateContext);
   const deleteCurrentChat = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     deleteChat(props.record.id);
+    navigate("/chats", { replace: true });
   };
   return (
     <Link
