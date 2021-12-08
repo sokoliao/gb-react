@@ -1,11 +1,9 @@
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import _ from "lodash";
-import { MouseEventHandler, useContext } from "react";
+import { useContext } from "react";
 import { Image, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { AppStateContext, ColorThemeContext } from "../../App";
-import { useAppState } from "../../hooks/app-state/use-app-state.hook";
 import { Chat } from "../../model/chat";
 import "./chat-record.css";
 
