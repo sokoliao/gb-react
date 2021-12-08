@@ -12,41 +12,33 @@ import { currentUser } from "./model/user";
 import _ from "lodash";
 import { Route, Router, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
+import { Layout } from "./components/layout/layout.component";
+import { ChatsLayoutComponent } from "./components/chats-layout/chats-layout.component";
 
 export const ColorThemeContext =
   React.createContext<ColorTheme>(defaultColorTheme);
-
-interface AppState {
-  currentChatId: string;
-  chats: Chat[];
-}
 
 const App: React.FC<{}> = () => {
   const [colorTheme, switchColorTheme] = useColorTheme();
   return (
     <BrowserRouter>
       <ColorThemeContext.Provider value={colorTheme}>
-        <Container
-          fluid
-          className={`app-wrapper d-flex flex-column p-0 ${colorTheme.background} ${colorTheme.text}`}
-        >
-          <HeaderComponent
-            switchColorTheme={switchColorTheme}
-          ></HeaderComponent>
-          <Row className="overflow-hidden flex-grow-1 m-0 flex-nowrap">
-            <Col xs="3" className="border-end">
-              <ChatListComponent chats={chats}></ChatListComponent>
-            </Col>
-            <Routes>
-              <Route path="/" element={<h1>200</h1>}>
-                <Route path="/chats" element={<h1>chats</h1>}></Route>
-                <Route path="/profile" element={<h1>profile</h1>}></Route>
-              </Route>
-              <Route path="*" element={<h1>404</h1>}></Route>
-            </Routes>
-            {/* <ChatComponent></ChatComponent> */}
-          </Row>
-        </Container>
+        <Routes>
+          <Route
+            path="/"
+            element={<Layout switchColorTheme={switchColorTheme}></Layout>}
+          >
+            <Route path="chats" element={<ChatsLayoutComponent />}>
+              <Route index element={<h1>start a new chat</h1>}></Route>
+              <Route
+                path=":chatId"
+                element={<ChatComponent></ChatComponent>}
+              ></Route>
+            </Route>
+            <Route path="profile" element={<h1>profile</h1>}></Route>
+          </Route>
+          <Route path="*" element={<h1>404</h1>}></Route>
+        </Routes>
       </ColorThemeContext.Provider>
     </BrowserRouter>
   );
