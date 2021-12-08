@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import { ChatListComponent } from "./components/chat-list/chat-list.component";
-import { Chat, chats } from "./model/chat";
 import { ChatComponent } from "./components/chat/chat.component";
 import { Col, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";

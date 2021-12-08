@@ -8,7 +8,7 @@ export interface Chat {
   messages: Message[];
 }
 
-export const chats: Chat[] = [
+export const initialChats: Chat[] = [
   {
     id: uuidv4(),
     name: "Cat facts",
