@@ -4,10 +4,6 @@
   margin-right: 1rem;
 }
 
-.chat-record-wrapper {
-  width: 100%;
-}
-
 .text-overflow-ellipsis {
   text-overflow: ellipsis;
 }

@@ -24,7 +24,10 @@ export const NewChatComponent: React.FC<NewChatProps> = (props) => {
   };
   const theme = useContext(ColorThemeContext);
   return (
-    <Form className="d-flex flex-row border-bottom" onSubmit={resetAndSubmit}>
+    <Form
+      className="d-flex flex-row border-bottom height-4rem align-items-center"
+      onSubmit={resetAndSubmit}
+    >
       <Form.Group className="m-2">
         <Form.Control
           type="text"
@@ -33,7 +36,7 @@ export const NewChatComponent: React.FC<NewChatProps> = (props) => {
           value={text}
         ></Form.Control>
       </Form.Group>
-      <Button className="m-2" variant={theme.button}>
+      <Button className="m-2 height-2dot5rem" variant={theme.button}>
         <FontAwesomeIcon icon={faPlusCircle} />
       </Button>
     </Form>

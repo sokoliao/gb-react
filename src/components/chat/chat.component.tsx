@@ -12,8 +12,8 @@ export const ChatComponent: React.FC<{}> = () => {
   const [newMessageEditRef] = useFocusNewMessage(messages);
   useChatbot(messages, addMessage);
   return (
-    <Col className="d-flex flex-column align-items-stretch justify-content-end chat-wrapper p-0">
-      <Nav className="border-bottom">
+    <Col className="d-flex flex-column align-items-stretch justify-content-end p-0 h-100">
+      <Nav className="border-bottom height-4rem">
         <Nav.Item className="d-flex align-items-center">
           <h2 className="my-2 mx-3">{chatName}</h2>
         </Nav.Item>

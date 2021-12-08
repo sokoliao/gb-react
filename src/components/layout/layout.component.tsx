@@ -3,7 +3,6 @@ import { Container, Row } from "react-bootstrap";
 import { Outlet } from "react-router";
 import { ColorThemeContext } from "../../App";
 import { HeaderComponent } from "../header/header.component";
-import "./layout.css";
 
 interface LayoutProps {
   switchColorTheme: () => void;
@@ -14,7 +13,7 @@ export const Layout: React.FC<LayoutProps> = (props) => {
   return (
     <Container
       fluid
-      className={`height-100vh d-flex flex-column p-0 ${theme.background} ${theme.text}`}
+      className={`vh-100 d-flex flex-column p-0 ${theme.background} ${theme.text}`}
     >
       <HeaderComponent
         switchColorTheme={props.switchColorTheme}

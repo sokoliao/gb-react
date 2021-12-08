@@ -21,7 +21,7 @@ export const ChatRecordComponent: React.FC<ChatRecordProps> = (props) => {
   return (
     <Link
       to={`${props.record.id}`}
-      className="align-items-center chat-record-wrapper d-flex flex-row nav-link"
+      className="align-items-center w-100 d-flex flex-row nav-link"
     >
       <Image
         className="chat-record-logo flex-grow-0"

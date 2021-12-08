@@ -11,7 +11,7 @@ interface ChatListProps {
 
 export const ChatListComponent: React.FC<ChatListProps> = (props) => {
   return (
-    <Row className="chat-list-content">
+    <Row className="chat-list-content h-100">
       <Nav className="flex-column p-0">
         <NewChatComponent addChat={props.addChat}></NewChatComponent>
         {props.chats.map((chat) => (
