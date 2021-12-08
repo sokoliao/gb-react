@@ -8,6 +8,15 @@ export interface Chat {
   messages: Message[];
 }
 
+export const createChat = (name: string): Chat => {
+  return {
+    id: uuidv4(),
+    name: name,
+    logoUrl: "/gb-react/comments-solid.svg",
+    messages: [],
+  }
+}
+
 export const initialChats: Chat[] = [
   {
     id: uuidv4(),

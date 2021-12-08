@@ -1,7 +1,11 @@
-import { useContext } from "react";
-import { Image, Col } from "react-bootstrap";
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import _ from "lodash";
+import { MouseEventHandler, useContext } from "react";
+import { Image, Col, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { ColorThemeContext } from "../../App";
+import { AppStateContext, ColorThemeContext } from "../../App";
+import { useAppState } from "../../hooks/app-state/use-app-state.hook";
 import { Chat } from "../../model/chat";
 import "./chat-record.css";
 
@@ -11,10 +15,15 @@ interface ChatRecordProps {
 
 export const ChatRecordComponent: React.FC<ChatRecordProps> = (props) => {
   const theme = useContext(ColorThemeContext);
+  const { deleteChat } = useContext(AppStateContext);
+  const deleteCurrentChat = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    deleteChat(props.record.id);
+  };
   return (
     <Link
       to={`${props.record.id}`}
-      className="align-items-stretch chat-record-wrapper d-flex flex-row nav-link"
+      className="align-items-center chat-record-wrapper d-flex flex-row nav-link"
     >
       <Image
         className="chat-record-logo flex-grow-0"
@@ -25,6 +34,9 @@ export const ChatRecordComponent: React.FC<ChatRecordProps> = (props) => {
       >
         {props.record.name}
       </Col>
+      <Button onClick={deleteCurrentChat} variant={theme.button}>
+        <FontAwesomeIcon icon={faTrashAlt} />
+      </Button>
     </Link>
   );
 };

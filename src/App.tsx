@@ -6,8 +6,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ColorTheme, defaultColorTheme } from "./hooks/color-theme/color-theme";
 import { useColorTheme } from "./hooks/color-theme/use-color-theme.hook";
-import { HeaderComponent } from "./components/header/header.component";
-import { currentUser } from "./model/user";
 import _ from "lodash";
 import { Route, Router, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
@@ -22,6 +20,8 @@ export const ColorThemeContext =
 export const AppStateContext = React.createContext<AppState>({
   chats: [],
   addMessageToChat: () => {},
+  addChat: () => {},
+  deleteChat: () => {},
 });
 
 const App: React.FC<{}> = () => {
@@ -37,7 +37,6 @@ const App: React.FC<{}> = () => {
               element={<Layout switchColorTheme={switchColorTheme}></Layout>}
             >
               <Route path="chats" element={<ChatsLayoutComponent />}>
-                <Route index element={<h1>start a new chat</h1>}></Route>
                 <Route
                   path=":chatId"
                   element={<ChatComponent></ChatComponent>}

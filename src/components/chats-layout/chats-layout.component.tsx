@@ -6,13 +6,13 @@ import { AppStateContext } from "../../App";
 import { ChatListComponent } from "../chat-list/chat-list.component";
 
 export const ChatsLayoutComponent: React.FC<{}> = () => {
-  const { chats } = useContext(AppStateContext);
+  const { chats, addChat } = useContext(AppStateContext);
   const chatId = useParams()["chatId"];
   const chat = _.find(chats, (c) => c.id === chatId);
   return (
-    <Row className="overflow-hidden flex-grow-1 m-0 flex-nowrap">
+    <Row className="overflow-hidden flex-grow-1 m-0 flex-nowrap p-0">
       <Col xs="3" className="border-end">
-        <ChatListComponent chats={chats}></ChatListComponent>
+        <ChatListComponent chats={chats} addChat={addChat}></ChatListComponent>
       </Col>
       {chat && <Outlet />}
       {!chat && <h1>404</h1>}
