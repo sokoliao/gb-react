@@ -1,14 +1,19 @@
 .app-wrapper {
   height: 100vh;
-  width: 100vw;
-  background-image: linear-gradient(rgb(0, 158, 221), lightskyblue);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-end;
 }
 
-.app-wrapper > * {
-  max-width: 80vw;
-  min-width: 512px;
+.chat-list-wrapper-outer {
+  height: 100%;
+}
+
+.chat-wrapper-outer {
+  width: 80%;
+}
+
+.height-2dot5rem {
+  height: 2.5rem;
+}
+
+.height-4rem {
+  height: 4rem;
 }

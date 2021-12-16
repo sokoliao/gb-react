@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
+import { Stack } from "react-bootstrap";
 import { Message } from "../../model/message";
 import { User } from "../../model/user";
 import { MessageComponent } from "../message/message.component";
-import "./message-list.css";
 
 interface MessageListProps {
   messages: Message[];
@@ -18,7 +18,7 @@ export const MessageListComponent: React.FC<MessageListProps> = (props) => {
     }
   }, [props.messages]);
   return (
-    <div className="message-list" ref={ref}>
+    <Stack className="justify-content-end overflow-scroll m-2" ref={ref}>
       {props.messages.map((message) => (
         <MessageComponent
           key={message.id}
@@ -26,6 +26,6 @@ export const MessageListComponent: React.FC<MessageListProps> = (props) => {
           isCurrentUserAuthor={message.user === props.currentUser}
         ></MessageComponent>
       ))}
-    </div>
+    </Stack>
   );
 };

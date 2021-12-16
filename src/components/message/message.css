@@ -10,16 +10,11 @@
 }
 
 .message-logo {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  justify-content: center;
-  margin: 8px;
-  border-radius: 16px;
+  width: 2rem;
+  height: 2rem;
 }
 
 .message-text {
-  background-color: white;
   border-radius: 8px;
   padding: 8px;
   margin: 8px;
@@ -27,14 +22,6 @@
   word-break: break-all;
 }
 
-.message-user-name {
-  color: gray;
-  font-size: 12px;
-}
-
-.message-timestamp {
-  color: gray;
-  display: flex;
-  justify-content: flex-end;
-  font-size: 8px;
+.text-small {
+  font-size: 0.75rem;
 }
