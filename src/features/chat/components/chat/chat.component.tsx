@@ -2,7 +2,6 @@ import _ from "lodash";
 import { Col, Nav } from "react-bootstrap";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
-import { useChatbot } from "../../../../hooks/use-chatbot.hook";
 import { useFocusNewMessage } from "../../../../hooks/use-focus-new-message.hook";
 import { useMessages } from "../../../../hooks/use-messages.hook";
 import { currentUser } from "../../../../model/user";
@@ -14,7 +13,6 @@ import { NewMessageComponent } from "../new-message/new-message.component";
 export const ChatComponent: React.FC<{}> = () => {
   const [chatName, messages, addMessage] = useMessages();
   const [newMessageEditRef] = useFocusNewMessage(messages);
-  useChatbot(messages, addMessage);
   return (
     <Col className="d-flex flex-column align-items-stretch justify-content-end p-0 h-100">
       <Nav className="border-bottom height-4rem">
