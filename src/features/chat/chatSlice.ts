@@ -1,35 +1,41 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
 import _ from "lodash";
-import { createChat, initialChats } from "../../model/chat";
-import { NewMessage } from "./new-message";
+import { Chat } from "../../model/chat";
+import { Error } from "../../model/error";
 
-export const CHATS_ADD = "chats/add";
-export const addChat = createAction<string>(CHATS_ADD);
-export const CHATS_DELETE = "chats/delete";
-export const deleteChat = createAction<string>(CHATS_DELETE);
+export interface AddChatPayload {
+  name: string;
+}
+export const addChat = createAction<AddChatPayload>("chats/add");
+export const addChatSuccess = createAction<Chat>("chats/add-success");
+export const addChatError = createAction<Error>("chats/add-error");
 
-export const MESSAGES_ADD = "messages/add";
-export const addMessage = createAction<NewMessage>(MESSAGES_ADD);
+export const deleteChat = createAction<string>("chats/delete");
 
+export const updateChat = createAction<Chat>("chats/update");
+
+export const noopChatAction = createAction<string>("chats/noop");
+
+export type ChatSliceState = Chat[];
+const initialState: ChatSliceState = [];
 export const chatSlice = createSlice({
-  name: "bla-bla",
-  initialState: initialChats,
+  name: "chats",
+  initialState: initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(
-      addChat,
-      (state, action) => (state = [createChat(action.payload), ...state])
+      addChatSuccess,
+      (state, action) => (state = [action.payload, ...state])
     );
+    builder.addCase(addChatError, (state, action) => {
+      console.error(action.payload);
+    });
     builder.addCase(deleteChat, (state, action) =>
       _.filter(state, (c) => c.id !== action.payload)
     );
-    builder.addCase(addMessage, (state, action) => {
-      const [affected, unaffected] = _.partition(
-        state,
-        (c) => c.id === action.payload.chatId
-      );
-      _.forEach(affected, (chat) => chat.messages.push(action.payload.message));
-      state = [...affected, ...unaffected];
+    builder.addCase(updateChat, (state, action) => {
+      state[_.findIndex(state, (c) => c.id === action.payload.id)] =
+        action.payload;
     });
   },
 });

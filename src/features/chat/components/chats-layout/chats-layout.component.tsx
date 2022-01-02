@@ -14,7 +14,7 @@ export const ChatsLayoutComponent: React.FC<{}> = () => {
       <Col xs="3" className="border-end">
         <ChatListComponent
           chats={chats}
-          addChat={(name) => dispatch(addChat(name))}
+          addChat={(name) => dispatch(addChat({ name: name }))}
         ></ChatListComponent>
       </Col>
       <Outlet />

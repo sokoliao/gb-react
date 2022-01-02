@@ -6,8 +6,10 @@ import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { User } from "../../../../model/user";
 import { createMessage, Message } from "../../../../model/message";
 import { ColorThemeContext } from "../../../../common/color-theme/color-theme";
+import { Chat } from "../../../../model/chat";
 
 interface NewMessageProps {
+  chat: Chat;
   user: User;
   onSubmitNewMessage: (message: Message) => void;
 }
@@ -27,7 +29,7 @@ export const NewMessageComponent = React.forwardRef<
     e.preventDefault();
     if (text === DEFAULT_VALUE) return;
     setText((_) => DEFAULT_VALUE);
-    props.onSubmitNewMessage(createMessage(props.user, text));
+    props.onSubmitNewMessage(createMessage(props.chat.id, props.user, text));
   };
   const theme = useContext(ColorThemeContext);
   return (
