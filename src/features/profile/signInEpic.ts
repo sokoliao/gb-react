@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from "@firebase/auth";
 import { Action } from "@reduxjs/toolkit";
 import { catchError, filter, from, map, mergeMap, Observable, of } from "rxjs";
-import { auth, fb } from "../../app/firebase";
+import { auth } from "../../app/firebase";
 import { userSignIn, userSignInError, userSignInSuccess } from "./profileSlice";
 
 export const signInEpic = (actions$: Observable<Action>) =>

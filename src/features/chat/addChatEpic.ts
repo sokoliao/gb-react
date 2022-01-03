@@ -22,7 +22,7 @@ const setChatOwner = (chat: Chat) => {
   return set(ref(database, `participants/${chat.id}`), "USER_NAME");
 };
 
-export const createChatEpic = (actions$: Observable<Action>) =>
+export const addChatEpic = (actions$: Observable<Action>) =>
   actions$.pipe(
     filter(addChat.match),
     map((action) => createChat(action.payload.name)),

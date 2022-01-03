@@ -25,11 +25,10 @@ export const chatbotEpic = (
       chat$.pipe(
         debounceTime(2000),
         withLatestFrom(state$),
-        filter(
-          ([m, state]) =>
-            (_.last(_.values(state.messages[m.payload.chatId]))?.user ?? bot)
-              .name !== bot.name
-        ),
+        filter(([m, state]) => {
+          const message = _.last(_.values(state.messages[m.payload.chatId]));
+          return !!message && message.user.name !== bot.name;
+        }),
         map(([m, state]) =>
           addMessage({
             chatId: m.payload.chatId,

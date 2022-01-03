@@ -1,5 +1,4 @@
 import { v4 as uuidv4 } from "uuid";
-import { Chat } from "./chat";
 import { User } from "./user";
 
 export interface Message {

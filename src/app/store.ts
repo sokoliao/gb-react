@@ -5,17 +5,16 @@ import {
   configureStore,
 } from "@reduxjs/toolkit";
 import { combineEpics, createEpicMiddleware } from "redux-observable";
-import { Observable } from "rxjs";
 import { Reducer } from "typesafe-actions";
 import { addMessageEpic } from "../features/chat/addMessageEpic";
 import { chatbotEpic } from "../features/chat/chatbotEpic";
 import { chatSlice } from "../features/chat/chatSlice";
-import { createChatEpic } from "../features/chat/createChatEpic";
-import { firebaseChatEpic } from "../features/chat/firebaseChatEpic";
+import { addChatEpic } from "../features/chat/addChatEpic";
+import { chatListenerEpic } from "../features/chat/chatListenerEpic";
 import { messageListenerEpic } from "../features/chat/messageListenerEpic";
 import { messageSlice } from "../features/chat/messageSlice";
 import { signUpEpic } from "../features/profile/profileEpic";
-import { profileSlice, ProfileState } from "../features/profile/profileSlice";
+import { profileSlice } from "../features/profile/profileSlice";
 import { signInEpic } from "../features/profile/signInEpic";
 import { signOutEpic } from "../features/profile/signOutEpic";
 
@@ -46,13 +45,11 @@ const rootEpic = combineEpics<AnyAction, AnyAction, RootState>(
   signUpEpic,
   signInEpic,
   signOutEpic,
-  createChatEpic,
-  firebaseChatEpic,
+  addChatEpic,
+  chatListenerEpic,
   messageListenerEpic,
   addMessageEpic
 );
 epicMiddleware.run(rootEpic);
 
 export type AppDispatch = typeof store.dispatch;
-
-// export type RootState = ReturnType<typeof store.getState>;

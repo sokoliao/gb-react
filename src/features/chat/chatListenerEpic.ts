@@ -12,7 +12,7 @@ import {
 } from "./chatSlice";
 import { Chat } from "../../model/chat";
 
-export const firebaseChatEpic = (
+export const chatListenerEpic = (
   actions$: Observable<Action>,
   state$: Observable<RootState>
 ) =>
