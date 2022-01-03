@@ -11,6 +11,8 @@ export const addChatSuccess = createAction<Chat>("chats/add-success");
 export const addChatError = createAction<Error>("chats/add-error");
 
 export const deleteChat = createAction<string>("chats/delete");
+export const deleteChatSuccess = createAction<string>("chats/delete-success");
+export const deleteChatError = createAction<Error>("chats/delete-error");
 
 export const updateChat = createAction<Chat>("chats/update");
 
@@ -30,9 +32,12 @@ export const chatSlice = createSlice({
     builder.addCase(addChatError, (state, action) => {
       console.error(action.payload);
     });
-    builder.addCase(deleteChat, (state, action) =>
+    builder.addCase(deleteChatSuccess, (state, action) =>
       _.filter(state, (c) => c.id !== action.payload)
     );
+    builder.addCase(deleteChatError, (_, { payload }) => {
+      console.error(payload);
+    });
     builder.addCase(updateChat, (state, action) => {
       state[_.findIndex(state, (c) => c.id === action.payload.id)] =
         action.payload;

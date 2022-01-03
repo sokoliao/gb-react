@@ -6,7 +6,7 @@ import { Action } from "redux";
 import { RootState } from "../../app/store";
 import {
   addChatSuccess,
-  deleteChat,
+  deleteChatSuccess,
   noopChatAction,
   updateChat,
 } from "./chatSlice";
@@ -28,7 +28,7 @@ export const chatListenerEpic = (
         case ListenEvent.moved:
           return noopChatAction("value event");
         case ListenEvent.removed:
-          return deleteChat(chat?.id);
+          return deleteChatSuccess(chat?.id);
         case ListenEvent.value:
           return noopChatAction("value event");
       }

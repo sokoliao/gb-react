@@ -17,6 +17,7 @@ import { signUpEpic } from "../features/profile/profileEpic";
 import { profileSlice } from "../features/profile/profileSlice";
 import { signInEpic } from "../features/profile/signInEpic";
 import { signOutEpic } from "../features/profile/signOutEpic";
+import { deleteChatEpic } from "../features/chat/deleteChatEpic";
 
 const combinedReducer = combineReducers({
   profile: profileSlice.reducer,
@@ -48,7 +49,8 @@ const rootEpic = combineEpics<AnyAction, AnyAction, RootState>(
   addChatEpic,
   chatListenerEpic,
   messageListenerEpic,
-  addMessageEpic
+  addMessageEpic,
+  deleteChatEpic
 );
 epicMiddleware.run(rootEpic);
 
